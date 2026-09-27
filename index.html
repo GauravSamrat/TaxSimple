@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!-- Professional Income Tax Calculator FY 2026-27 -->
+<!-- All icons are inline SVG (no external library, no emoji) -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Tax Calculator FY 2026-27 | Old vs New Regime</title>
+  <meta name="description" content="Calculate income tax for FY 2026-27. Compare old and new regime. Free, accurate, and instant.">
+  <meta name="keywords" content="income tax calculator, FY 2026-27, old vs new regime, tax calculator India, income tax slab">
+  <meta name="author" content="Gaurav Samrat">
+  <meta property="og:title" content="Income Tax Calculator FY 2026-27">
+  <meta property="og:description" content="Free income tax calculator with old vs new regime comparison">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ===== HEADER ===== -->
+  <div class="header">
+    <div class="header-icon">
+      <!-- SVG: Calculator Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+        <line x1="8" y1="6" x2="16" y2="6"></line>
+        <line x1="8" y1="10" x2="8" y2="10.01"></line>
+        <line x1="12" y1="10" x2="12" y2="10.01"></line>
+        <line x1="16" y1="10" x2="16" y2="10.01"></line>
+        <line x1="8" y1="14" x2="8" y2="14.01"></line>
+        <line x1="12" y1="14" x2="12" y2="14.01"></line>
+        <line x1="16" y1="14" x2="16" y2="14.01"></line>
+        <line x1="8" y1="18" x2="8" y2="18.01"></line>
+        <line x1="12" y1="18" x2="12" y2="18.01"></line>
+        <line x1="16" y1="18" x2="16" y2="18.01"></line>
+      </svg>
+    </div>
+    <h1>Income Tax Calculator</h1>
+    <span class="badge">FY 2026-27 (AY 2027-28)</span>
+    <p>Compare Old vs New Regime · Find your best option instantly</p>
+  </div>
+
+  <!-- ===== INCOME INPUT ===== -->
+  <div class="form-group">
+    <label for="income">
+      <!-- SVG: Rupee Icon -->
+      <svg class="label-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5a6a82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 3h12M6 8h12M6 13l8.5 8M6 13h3a4 4 0 0 0 0-8"/>
+      </svg>
+      Gross Annual Income <span class="hint">(₹)</span>
+    </label>
+    <input type="number" id="income" placeholder="e.g., 1200000" min="0" value="1200000">
+  </div>
+
+  <!-- ===== AGE GROUP ===== -->
+  <div class="form-group">
+    <label for="age">
+      <!-- SVG: User Icon -->
+      <svg class="label-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5a6a82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      Age Group <span class="hint">(for Old Regime slabs)</span>
+    </label>
+    <select id="age">
+      <option value="below60">Below 60 years</option>
+      <option value="senior">Senior Citizen (60-80 years)</option>
+      <option value="superSenior">Super Senior (80+ years)</option>
+    </select>
+  </div>
+
+  <!-- ===== REGIME SELECTION ===== -->
+  <div class="form-group">
+    <label for="regime">
+      <!-- SVG: Scale/Balance Icon -->
+      <svg class="label-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5a6a82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v18"></path>
+        <path d="M5 7l-3 7c0 1.66 1.34 3 3 3s3-1.34 3-3l-3-7z"></path>
+        <path d="M19 7l-3 7c0 1.66 1.34 3 3 3s3-1.34 3-3l-3-7z"></path>
+        <path d="M5 7h14"></path>
+      </svg>
+      Tax Regime
+    </label>
+    <select id="regime">
+      <option value="new">New Regime (Default)</option>
+      <option value="old">Old Regime</option>
+      <option value="both">Compare Both Regimes</option>
+    </select>
+  </div>
+
+  <!-- ===== DEDUCTIONS SECTION (Old Regime Only) ===== -->
+  <div id="old-regime-section">
+    <h3>
+      <!-- SVG: Wallet Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+        <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+        <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+      </svg>
+      Deductions (Old Regime Only)
+    </h3>
+    <div class="deduction-grid">
+      <div class="form-group">
+        <label for="sec80c">Section 80C <span class="hint">(Max ₹1,50,000)</span></label>
+        <input type="number" id="sec80c" placeholder="0" min="0" value="0">
+      </div>
+      <div class="form-group">
+        <label for="sec80d">Section 80D <span class="hint">(Max ₹50,000)</span></label>
+        <input type="number" id="sec80d" placeholder="0" min="0" value="0">
+      </div>
+      <div class="form-group">
+        <label for="nps">Section 80CCD(1B) NPS <span class="hint">(Max ₹50,000)</span></label>
+        <input type="number" id="nps" placeholder="0" min="0" value="0">
+      </div>
+      <div class="form-group">
+        <label for="homeloan">Home Loan Interest <span class="hint">(Max ₹2,00,000)</span></label>
+        <input type="number" id="homeloan" placeholder="0" min="0" value="0">
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CALCULATE BUTTON ===== -->
+  <button class="btn-calculate" onclick="calculateTax()">
+    <!-- SVG: Calculator/Calculate Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+      <line x1="8" y1="6" x2="16" y2="6"></line>
+      <line x1="8" y1="10" x2="8" y2="10.01"></line>
+      <line x1="12" y1="10" x2="12" y2="10.01"></line>
+      <line x1="16" y1="10" x2="16" y2="10.01"></line>
+      <line x1="8" y1="14" x2="8" y2="14.01"></line>
+      <line x1="12" y1="14" x2="12" y2="14.01"></line>
+      <line x1="16" y1="14" x2="16" y2="14.01"></line>
+      <line x1="8" y1="18" x2="8" y2="18.01"></line>
+      <line x1="12" y1="18" x2="12" y2="18.01"></line>
+      <line x1="16" y1="18" x2="16" y2="18.01"></line>
+    </svg>
+    Calculate Tax
+  </button>
+
+  <!-- ===== RESULTS CONTAINER ===== -->
+  <div id="results"></div>
+
+  <!-- ===== ACTION BUTTONS (Results ke baad dikhenge) ===== -->
+  <div id="action-buttons" style="display:none;">
+    <button class="btn-secondary" onclick="downloadPDF()">
+      <!-- SVG: Download Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Download PDF Report
+    </button>
+    <button class="btn-secondary" onclick="shareOnWhatsApp()">
+      <!-- SVG: Share Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"></circle>
+        <circle cx="6" cy="12" r="3"></circle>
+        <circle cx="18" cy="19" r="3"></circle>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+      </svg>
+      Share on WhatsApp
+    </button>
+    <button class="btn-secondary" onclick="copyResult()">
+      <!-- SVG: Copy Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      Copy Result
+    </button>
+  </div>
+
+  <!-- ===== TAX SAVING SUGGESTIONS ===== -->
+  <div id="suggestions" style="display:none;"></div>
+
+  <!-- ===== SEO CONTENT SECTION (AdSense Approval Ke Liye) ===== -->
+  <div class="content-section">
+    
+    <h2>What is Income Tax?</h2>
+    <p>Income tax is a direct tax levied by the Government of India on the income earned by individuals, Hindu Undivided Families (HUFs), companies, firms, and other entities. The tax is calculated based on the total income earned during a financial year (April 1 to March 31) and is governed by the Income Tax Act, 1961.</p>
+    <p>In India, income tax is administered by the Central Board of Direct Taxes (CBDT) under the Department of Revenue, Ministry of Finance. Every individual whose income exceeds the basic exemption limit is required to file an Income Tax Return (ITR) and pay tax as per the applicable slabs.</p>
+    <p>The income tax system in India follows a <strong>progressive slab structure</strong>, which means higher income is taxed at higher rates. This ensures that the tax burden is distributed fairly across different income groups.</p>
+
+    <h2>Old Regime vs New Regime: Which One Should You Choose?</h2>
+    <p>Since FY 2020-21, Indian taxpayers have the option to choose between two tax regimes: the <strong>Old Regime</strong> and the <strong>New Regime</strong>. Starting FY 2023-24, the New Regime became the default option. However, taxpayers can still opt for the Old Regime if it benefits them more.</p>
+    
+    <h3>Old Regime</h3>
+    <p>The Old Regime allows taxpayers to claim various deductions and exemptions under sections like 80C, 80D, 80CCD(1B), HRA, LTA, and home loan interest under Section 24(b). This regime is beneficial for those who make significant investments in tax-saving instruments such as PPF, ELSS, life insurance, and health insurance.</p>
+    
+    <h3>New Regime</h3>
+    <p>The New Regime offers lower tax rates but does not allow most deductions. Only the standard deduction of ₹75,000 (for salaried individuals) and the employer's NPS contribution under Section 80CCD(2) are allowed. This regime benefits those who do not have substantial investments or who prefer simplicity in tax filing.</p>
+    
+    <h3>Which One is Better?</h3>
+    <p>There is no one-size-fits-all answer. Generally:</p>
+    <ul>
+      <li>If your total deductions exceed <strong>₹3,75,000 to ₹4,00,000</strong>, the Old Regime may be better.</li>
+      <li>If your deductions are low, the New Regime usually results in lower tax.</li>
+      <li>Use our calculator above to compare both regimes and find out which one saves you more tax.</li>
+    </ul>
+
+    <h2>Income Tax Slabs for FY 2026-27</h2>
+    <p>The tax slabs for FY 2026-27 remain unchanged from FY 2025-26. Here is the detailed breakdown:</p>
+
+    <h3>New Regime Slabs (Default)</h3>
+    <table class="slab-table">
+      <thead>
+        <tr><th>Income Slab</th><th>Tax Rate</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Up to ₹4,00,000</td><td>0%</td></tr>
+        <tr><td>₹4,00,001 – ₹8,00,000</td><td>5%</td></tr>
+        <tr><td>₹8,00,001 – ₹12,00,000</td><td>10%</td></tr>
+        <tr><td>₹12,00,001 – ₹16,00,000</td><td>15%</td></tr>
+        <tr><td>₹16,00,001 – ₹20,00,000</td><td>20%</td></tr>
+        <tr><td>₹20,00,001 – ₹24,00,000</td><td>25%</td></tr>
+        <tr><td>Above ₹24,00,000</td><td>30%</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Old Regime Slabs (Below 60 Years)</h3>
+    <table class="slab-table">
+      <thead>
+        <tr><th>Income Slab</th><th>Tax Rate</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Up to ₹2,50,000</td><td>0%</td></tr>
+        <tr><td>₹2,50,001 – ₹5,00,000</td><td>5%</td></tr>
+        <tr><td>₹5,00,001 – ₹10,00,000</td><td>20%</td></tr>
+        <tr><td>Above ₹10,00,000</td><td>30%</td></tr>
+      </tbody>
+    </table>
+
+    <h2>What is Section 87A Rebate?</h2>
+    <p>Section 87A provides a tax rebate to individuals with lower incomes. Under the New Regime, if your taxable income is up to <strong>₹12,00,000</strong>, you can claim a rebate of up to <strong>₹60,000</strong>. This effectively means zero tax for income up to ₹12 lakh (after standard deduction of ₹75,000, gross income up to ₹12.75 lakh).</p>
+    <p>Under the Old Regime, the rebate is up to <strong>₹12,500</strong> if your taxable income is up to <strong>₹5,00,000</strong>.</p>
+
+    <h2>What is Health & Education Cess?</h2>
+    <p>Health & Education Cess is a 4% surcharge levied on the total tax payable (including surcharge, if applicable). This cess is used to fund primary and secondary education, as well as public health initiatives in India.</p>
+
+    <h2>What is Surcharge?</h2>
+    <p>Surcharge is an additional tax levied on taxpayers with higher incomes. It is calculated as a percentage of the income tax before cess. The surcharge rates vary based on income:</p>
+    <ul>
+      <li><strong>Up to ₹50 lakh:</strong> No surcharge</li>
+      <li><strong>₹50 lakh – ₹1 crore:</strong> 10% surcharge</li>
+      <li><strong>₹1 crore – ₹2 crore:</strong> 15% surcharge</li>
+      <li><strong>₹2 crore – ₹5 crore:</strong> 25% surcharge</li>
+      <li><strong>Above ₹5 crore:</strong> 25% (New Regime) or 37% (Old Regime)</li>
+    </ul>
+
+    <h2>How to Use This Income Tax Calculator</h2>
+    <ol>
+      <li>Enter your <strong>Gross Annual Income</strong> (before any deductions).</li>
+      <li>Select your <strong>Age Group</strong> (relevant for Old Regime slabs).</li>
+      <li>Choose your <strong>Tax Regime</strong> — New, Old, or Compare Both.</li>
+      <li>If you select Old Regime, enter your <strong>deductions</strong> (80C, 80D, NPS, home loan interest).</li>
+      <li>Click <strong>Calculate Tax</strong> to see your tax liability.</li>
+    </ol>
+
+    <h2>Frequently Asked Questions (FAQs)</h2>
+
+    <h3>1. Is the New Regime mandatory for FY 2026-27?</h3>
+    <p>No, the New Regime is the default option, but you can still choose the Old Regime if it benefits you more. You need to explicitly opt for the Old Regime while filing your ITR.</p>
+
+    <h3>2. Can I switch between Old and New Regime every year?</h3>
+    <p>Salaried individuals can switch between regimes every year while filing their ITR. However, business owners can switch only once in their lifetime.</p>
+
+    <h3>3. What is the standard deduction in the New Regime?</h3>
+    <p>The standard deduction in the New Regime is <strong>₹75,000</strong> for salaried individuals and pensioners.</p>
+
+    <h3>4. What is the standard deduction in the Old Regime?</h3>
+    <p>The standard deduction in the Old Regime is <strong>₹50,000</strong> for salaried individuals.</p>
+
+    <h3>5. How much tax do I pay on ₹10 lakh income?</h3>
+    <p>Under the New Regime, on a gross income of ₹10 lakh (taxable income ₹9.25 lakh after standard deduction), the tax is approximately <strong>₹46,800</strong> (including cess). Under the Old Regime, it depends on your deductions.</p>
+
+    <h3>6. How much tax do I pay on ₹12 lakh income?</h3>
+    <p>Under the New Regime, if your taxable income is up to ₹12 lakh, Section 87A rebate makes your tax <strong>zero</strong>. So on a gross income of ₹12.75 lakh, your tax is zero.</p>
+
+    <h3>7. What documents do I need to file my ITR?</h3>
+    <p>You need Form 16 (from employer), bank statements, investment proofs (80C, 80D), rent receipts (for HRA), home loan interest certificate, and capital gains statements (if applicable).</p>
+
+    <h3>8. What is the due date for filing ITR for FY 2026-27?</h3>
+    <p>For individuals, the due date is usually <strong>July 31, 2027</strong>. For businesses requiring audit, the due date is October 31, 2027.</p>
+
+    <h3>9. Can I file ITR without paying tax?</h3>
+    <p>Yes, if your income is below the basic exemption limit (₹4 lakh in New Regime), you can file a nil return without paying any tax.</p>
+
+    <h3>10. Is this calculator accurate?</h3>
+    <p>This calculator uses the official tax slabs and rules for FY 2026-27. However, it is for informational purposes only. For complex tax situations, please consult a qualified Chartered Accountant.</p>
+
+    <h2>Tax Saving Tips for FY 2026-27</h2>
+    <ul>
+      <li><strong>Invest in ELSS:</strong> Equity Linked Savings Scheme offers tax deduction up to ₹1.5 lakh under Section 80C, with the potential for high returns.</li>
+      <li><strong>PPF:</strong> Public Provident Fund offers safe, tax-free returns with an 80C deduction.</li>
+      <li><strong>Health Insurance:</strong> Premium paid for health insurance under Section 80D is deductible up to ₹25,000 (₹50,000 for seniors).</li>
+      <li><strong>NPS:</strong> Additional ₹50,000 deduction under Section 80CCD(1B) for National Pension Scheme contributions.</li>
+      <li><strong>Home Loan:</strong> Interest paid on home loan is deductible up to ₹2 lakh under Section 24(b).</li>
+      <li><strong>Choose the Right Regime:</strong> Use our calculator to compare both regimes before filing.</li>
+    </ul>
+
+    <h2>Disclaimer</h2>
+    <p>This income tax calculator is designed to provide accurate and useful information. However, it is not a substitute for professional tax advice. Tax laws are subject to change, and individual circumstances vary. Please consult a qualified Chartered Accountant or tax professional before making any tax-related decisions.</p>
+
+  </div>
+
+  <!-- ===== DISCLAIMER BOX ===== -->
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> This calculator uses FY 2026-27 tax slabs as per Income Tax Act, 2025. Tax slabs remain unchanged from FY 2025-26. This is for informational purposes only. Please consult a tax professional for your specific situation.
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    Made for India · FY 2026-27 · Data verified from official sources
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
