@@ -2,7 +2,8 @@
 
 A free, fast, and accurate income tax calculator for Indian taxpayers. Compare the Old Regime vs the New Regime side by side, see your exact tax liability, and get personalised tax-saving suggestions — all in your browser, with no sign-up and no data leaving your device.
 
-**Live demo:** https://GauravSamrat/.github.io//
+**Live demo:** https://gauravsamrat.github.io/TaxSimple/
+
 
 ---
 
